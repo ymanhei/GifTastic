@@ -3,18 +3,35 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Trivia Game</title>
+  <title>GifTastic!</title>
 
   <!-- Fill in the href to the CSS such that this HTML file can access the CSS -->
   <!-- Don't move the HTML or CSS file. Use Relative Linking -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
 </head>
 
 <body>        
+
+    <div class="container">
+        <h1>GifTastic</h1>
+
+       
+        <div id="buttons-view"></div>
     
+        <form id="gif-form">
+          <label for="gif-input">Add Something New!</label>
+          <input type="text" id="gif-input"><br>
+          <input id="add-gif" type="submit" value="Add Something New!">
+          <input id="add-10more-gif" type="submit" value="Add 10 more!">
+        </form>
+    
+        <div class ="row justify-content-center" id="gif-view"></div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    </div>
 
 </body>
 
