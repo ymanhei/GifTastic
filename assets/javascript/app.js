@@ -7,7 +7,7 @@ var limit = 20;
 function renderButtons() {
   $("#buttons-view").empty();
   for (i=0;i<movies.length;i++){
-    $("#buttons-view").append('<input type="button" id="btn1" class="btn btn-dark" value="' + movies[i] + '" />');
+    $("#buttons-view").append('<input type="button" id="btn1" class="btn btn-outline-light m-2" value="' + movies[i] + '" />');
   }
 // YOUR CODE GOES HERE
 
@@ -26,10 +26,7 @@ $("#add-gif").on("click", function(event) {
     movies.push(inputgif);
     renderButtons();
   }
-  
-  
   // YOUR CODE GOES HERE
-
 });
 
 
@@ -88,6 +85,7 @@ var results = response.data;
             var animate = results[i].images.original.url;
             var rating = results[i].rating;
             var title = results[i].title;
+            console.log(title);
 //$("#gif-view").prepend('<img data-animate="' + animate + '" data-still="' + still + '" data-state="still" src="' + still + '"/>');
 $("#gif-view").prepend('<div class="card  m-3" style="width: 18rem;"><img src="'+still+'" data-animate="' + animate + '"  data-state="still" data-still="' + still + '" class="card-img-top"><div class="card-body"><span class="card-title"><strong>Rating:</strong></span><p class="rating">' + rating + '</p><span class="card-title"><strong>Title:</strong></span><p class="title">' + title + '</p></div></div>');
           }
@@ -100,23 +98,30 @@ $("#gif-view").prepend('<div class="card  m-3" style="width: 18rem;"><img src="'
 
 });
 
-$(document).on("click", "img", function(event) {
+$(document).on("click", ".card", function(event) {
 
 console.log(this);
-    if ($(this).attr("data-state") == "still") {
-    var da = $(this).attr("data-animate");
-    $(this).attr("src",da);
-    $(this).attr("data-state","animate");
+    if ($(this).children("img").attr("data-state") == "still") {
+    var da = $(this).children("img").attr("data-animate");
+    $(this).children("img").attr("src",da);
+    $(this).children("img").attr("data-state","animate");
     }
     else {
-      var st = $(this).attr("data-still");
-    $(this).attr("src",st);
-    $(this).attr("data-state","still");
+      var st = $(this).children("img").attr("data-still");
+    $(this).children("img").attr("src",st);
+    $(this).children("img").attr("data-state","still");
 
     }
 
     
   });
+
+  $(document).on("click", ".card", function(event) {
+    $(".card").removeClass("border-5 border-danger");
+    $(this).addClass("border-5 border-danger");
+
+        
+      });
 
 renderButtons();
 
